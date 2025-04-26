@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3o8ad7hof8d1"]
+
+[sub_resource type="Curve3D" id="Curve3D_70ttq"]
+
+[sub_resource type="GDScript" id="GDScript_3ffrh"]
+script/source = "class_name BalloonPath extends Path3D
+
+func add_balloon(balloon: Balloon):
+	var path_follow = PathFollow3D.new()
+	path_follow.add_child(balloon)
+	add_child(path_follow)
+"
+
+[node name="BalloonPath" type="Path3D"]
+curve = SubResource("Curve3D_70ttq")
+script = SubResource("GDScript_3ffrh")

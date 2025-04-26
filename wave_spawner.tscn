@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdxcd4mmn3uml"]
+
+[ext_resource type="Script" uid="uid://brtl5nf42mjlq" path="res://wave_spawner.gd" id="1_ryks6"]
+
+[node name="WaveSpawner" type="Node"]
+script = ExtResource("1_ryks6")
+
+[node name="Timer" type="Timer" parent="."]

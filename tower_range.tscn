@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3rltqrtnt7v4"]
+
+[ext_resource type="Script" uid="uid://c1qjqf8deqgfa" path="res://tower_range.gd" id="1_7ltj2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j573u"]
+radius = 9.65455
+
+[node name="TowerRange" type="Area3D"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_7ltj2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_j573u")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
