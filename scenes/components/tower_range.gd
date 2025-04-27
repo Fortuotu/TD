@@ -39,7 +39,7 @@ func get_closest() -> Balloon:
 	return closest
 
 func _on_area_entered(balloon: Balloon) -> void:
-	balloon.before_pop.connect(_remove_balloon)
+	balloon.before_pop.connect(_remove_balloon.bind(balloon))
 	tracked_balloons.append(balloon)
 
 func _on_area_exited(balloon: Area3D) -> void:
