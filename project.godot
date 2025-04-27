@@ -15,6 +15,10 @@ run/main_scene="uid://jxr57ixjvmwj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=144
 
+[autoload]
+
+Global="*res://singletons/global.gd"
+
 [input]
 
 move_right={

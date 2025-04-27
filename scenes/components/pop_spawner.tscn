@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcl01noaf25nw"]
+
+[ext_resource type="Script" uid="uid://ed5t4f2dvlvg" path="res://scenes/components/pop_spawner.gd" id="1_jvomj"]
+
+[node name="PopSpawner" type="Node"]
+script = ExtResource("1_jvomj")

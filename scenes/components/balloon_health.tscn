@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4oi2niarmr5j"]
+
+[ext_resource type="Script" uid="uid://bf3gmeth837x6" path="res://scenes/components/balloon_health.gd" id="1_m7tlm"]
+
+[node name="BalloonHealth" type="Node"]
+script = ExtResource("1_m7tlm")

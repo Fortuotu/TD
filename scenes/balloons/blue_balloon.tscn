@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg4ym5fcqe7bj"]
+
+[ext_resource type="Script" uid="uid://bagpnt8wg5qef" path="res://scenes/balloons/blue_balloon.gd" id="1_3olte"]
+[ext_resource type="ArrayMesh" uid="uid://c73o1wrhwddey" path="res://assets/models/balloons/blue/balloon.obj" id="2_ssl55"]
+[ext_resource type="PackedScene" uid="uid://c4oi2niarmr5j" path="res://scenes/components/balloon_health.tscn" id="3_5uqvr"]
+[ext_resource type="PackedScene" uid="uid://bcl01noaf25nw" path="res://scenes/components/pop_spawner.tscn" id="4_r8xnm"]
+[ext_resource type="PackedScene" uid="uid://bb1yadjihlly6" path="res://scenes/balloons/red_balloon.tscn" id="5_k5oe3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1hs77"]
+radius = 0.999329
+
+[node name="BlueBalloon" type="Area3D"]
+script = ExtResource("1_3olte")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_1hs77")
+
+[node name="Balloon" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ssl55")
+
+[node name="BalloonHealth" parent="." node_paths=PackedStringArray("balloon", "pop_spawner") instance=ExtResource("3_5uqvr")]
+balloon = NodePath("..")
+pop_spawner = NodePath("../PopSpawner")
+starting_health = 1
+
+[node name="PopSpawner" parent="." instance=ExtResource("4_r8xnm")]
+spawned_balloon = ExtResource("5_k5oe3")
