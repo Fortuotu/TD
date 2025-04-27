@@ -1,6 +1,6 @@
 class_name WaveSpawner extends Node
 
-var balloon_scene = preload("res://scenes/balloons/red_balloon.tscn")
+var balloon_scene = preload("res://scenes/balloons/blue_balloon.tscn")
 
 @export var path: Path3D
 

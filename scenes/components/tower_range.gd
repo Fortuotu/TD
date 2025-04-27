@@ -39,12 +39,12 @@ func get_closest() -> Balloon:
 	return closest
 
 func _on_area_entered(balloon: Balloon) -> void:
-	balloon.on_pop.connect(_remove_balloon)
+	balloon.before_pop.connect(_remove_balloon)
 	tracked_balloons.append(balloon)
 
 func _on_area_exited(balloon: Area3D) -> void:
 	_remove_balloon(balloon)
 
 func _remove_balloon(balloon: Balloon):
-	balloon.on_pop.disconnect(_remove_balloon)
+	balloon.before_pop.disconnect(_remove_balloon)
 	tracked_balloons.erase(balloon)

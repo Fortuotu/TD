@@ -4,7 +4,7 @@ class_name HealthComponent
 ## Used for managing a Node's health. 
 
 ## Total/maximum amount of health.
-@export var max_health := 20
+@export var max_health: int
 
 ## Current amount of health,[br]
 ## [b]Default is [member HealthComponent.max_health][/b].

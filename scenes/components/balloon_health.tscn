@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4oi2niarmr5j"]
+[gd_scene load_steps=2 format=3 uid="uid://dwvt2dsxhnmb2"]
 
-[ext_resource type="Script" uid="uid://bf3gmeth837x6" path="res://scenes/components/balloon_health.gd" id="1_m7tlm"]
+[sub_resource type="GDScript" id="GDScript_e3y5p"]
+script/source = "class_name BalloonHealth extends Node
+
+@export var balloon: Balloon
+@export var pop_spawner: PopSpawner
+@export var starting_health: int
+
+var _health: HealthComponent
+
+func _ready() -> void:
+	_health.health = starting_health
+	_health.Died.connect(_on_death)
+
+func _on_death():
+	pop_spawner.on_pop(balloon.get_follow().progress)
+"
 
 [node name="BalloonHealth" type="Node"]
-script = ExtResource("1_m7tlm")
+script = SubResource("GDScript_e3y5p")
