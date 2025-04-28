@@ -4,7 +4,7 @@ signal before_pop
 
 @export var health: HealthComponent
 
-var _speed: float = 5.0
+var _speed: float = 0.0
 var _follow: PathFollow3D
 
 func _ready() -> void:

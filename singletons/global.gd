@@ -1,5 +1,11 @@
 extends Node
 
+var balloons = [
+	{
+		
+	}
+]
+
 var _wave_spawner: WaveSpawner
 
 func set_wave_spawner(wave_spawner: WaveSpawner):

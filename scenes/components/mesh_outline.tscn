@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://h1iir4vwno4m"]
+
+[node name="MeshOutline" type="MeshInstance3D"]
