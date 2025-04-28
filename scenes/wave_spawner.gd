@@ -1,10 +1,9 @@
 class_name WaveSpawner extends Node
 
-var balloon_scene = preload("res://scenes/balloons/blue_balloon.tscn")
-
 @export var path: Path3D
 
-var balloon_count = 1
+@onready var wave_gen: WaveGenerator = WaveGenerator.create(69)
+var _wave_active = false
 
 func _enter_tree() -> void:
 	Global.set_wave_spawner(self)
@@ -14,16 +13,24 @@ func _exit_tree() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_right"):
-		_start_next_wave()
+		start_next_wave()
 
-func _start_next_wave():
-	for i in range(balloon_count):
-		spawn_balloon(balloon_scene.instantiate())
+func start_next_wave():
+	if _wave_active:
+		return
+	
+	_wave_active = true
+	
+	var wave: Array[WaveGenerator.SpawnEntry] = wave_gen.generate_next()
+	
+	for entry in wave:
+		if entry.balloon:
+			spawn_balloon(entry.balloon)
 		
-		$Timer.start(0.2)
+		$Timer.start(entry.delay)
 		await $Timer.timeout
 	
-	balloon_count += 1
+	_wave_active = false
 
 func spawn_balloon_at_progress(balloon: Balloon, progress: float):
 	var follow = PathFollow3D.new()
