@@ -14,4 +14,4 @@ func _spawn_balloon() -> void:
 		spawner_balloon.get_follow().progress
 	)
 	
-	balloon.health.damage(spawner_balloon.health.overkill)
+	balloon.transfer_overkill_damage(spawner_balloon.health.overkill)

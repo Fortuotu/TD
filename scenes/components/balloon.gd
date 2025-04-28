@@ -27,3 +27,6 @@ func set_follow(follow: PathFollow3D):
 
 func get_follow() -> PathFollow3D:
 	return _follow
+
+func transfer_overkill_damage(damage: int):
+	health.damage(damage)

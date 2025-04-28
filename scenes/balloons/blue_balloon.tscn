@@ -23,7 +23,7 @@ mesh = ExtResource("2_ssl55")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_1hs77")
-max_health = 2
+max_health = 1
 metadata/_custom_type_script = "uid://cx32y2mhi8evx"
 
 [node name="PopSpawner" type="Node" parent="." node_paths=PackedStringArray("spawner_balloon")]

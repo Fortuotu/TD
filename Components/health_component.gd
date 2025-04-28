@@ -8,33 +8,27 @@ class_name HealthComponent
 
 ## Current amount of health,[br]
 ## [b]Default is [member HealthComponent.max_health][/b].
-var health := max_health
-var overkill: int = 0.0
+@onready var health: int = max_health
+@onready var overkill: int = 0
 
 ## Boolean for if the Node is alive or dead.
-var alive := true
+var alive = true
 
 ## Signal that is emitted when the Node dies.
 signal Died
 
 ## Reduces the [member HealthComponent.health] by the amount specified,[br]
 ## and will kill if the [member HealthComponent.health] reaches 0.
-func damage(amount := 0) -> void:
-	if alive: 
-		health = health - abs(amount)
+func damage(amount: int) -> void:
+	if alive:
+		health -= amount
 		
-		if health <= 0: kill()
-	else: print(owner.name + " is already dead!")
-
-## Increases the [member HealthComponent.health] by the amount specified,[br]
-## and will not go higher than [member HealthComponent.max_health].
-func heal(amount := 0) -> void:
-	if alive: health = clamp(health + abs(amount), 0, max_health)
-	else: print(owner.name + " is already dead!")
+		if health <= 0:
+			kill()
 
 ## Kills the Node, which emits the [signal HealthComponent.Died],
 ## sets [code]health = 0[/code], and [code]alive = false[/code].
 func kill() -> void:
-	overkill = abs(health)
 	alive = false
+	overkill = abs(health)
 	Died.emit()
