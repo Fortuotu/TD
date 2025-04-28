@@ -49,7 +49,7 @@ func _generate_burst() -> Array[SpawnEntry]:
 	return burst
 
 func _generate_break() -> Array[SpawnEntry]:
-	return [SpawnEntry.new(null, _rng.randf_range(1.0, 3.0))]
+	return [SpawnEntry.new(null, _rng.randf_range(0.0, 1.5  / (float(_wave_counter) + 1.0)))]
 
 func generate_next() -> Array[SpawnEntry]:
 	var wave: Array[SpawnEntry]
@@ -58,9 +58,7 @@ func generate_next() -> Array[SpawnEntry]:
 	
 	for i in range(major_count):
 		wave.append_array(_generate_burst())
-		
-		if _rng_chance(16):
-			wave.append_array(_generate_break())
+		wave.append_array(_generate_break())
 	
 	_wave_counter += 1
 	_sidx = _wave_counter / 7

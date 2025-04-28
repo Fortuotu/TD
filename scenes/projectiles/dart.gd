@@ -11,7 +11,7 @@ static func create(spawn: Vector3, target: Vector3):
 
 var dart_speed = 60.0
 var _pierce_left = 1
-var _damage = 2
+var _damage = 1
 var _lifetime = 5.0
 
 var _direction: Vector3
