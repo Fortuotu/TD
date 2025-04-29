@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccyxrx82v5cyj"]
+
+[ext_resource type="Script" uid="uid://peayp0xf4hsn" path="res://scenes/balloons/green_balloon.gd" id="1_fihii"]
+[ext_resource type="ArrayMesh" uid="uid://6wkk4xcf11pt" path="res://assets/models/balloons/green/balloon.obj" id="2_6bj5n"]
+[ext_resource type="Script" uid="uid://cx32y2mhi8evx" path="res://Components/health_component.gd" id="3_nxokv"]
+[ext_resource type="Script" uid="uid://ed5t4f2dvlvg" path="res://scenes/components/pop_spawner.gd" id="4_n3a55"]
+[ext_resource type="PackedScene" uid="uid://bg4ym5fcqe7bj" path="res://scenes/balloons/blue_balloon.tscn" id="5_x1v3n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2mjrg"]
+radius = 1.0
+
+[node name="GreenBalloon" type="Area3D" node_paths=PackedStringArray("health")]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_fihii")
+health = NodePath("HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2mjrg")
+
+[node name="Balloon" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_6bj5n")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_nxokv")
+max_health = 1
+metadata/_custom_type_script = "uid://cx32y2mhi8evx"
+
+[node name="PopSpawner" type="Node" parent="." node_paths=PackedStringArray("spawner_balloon")]
+script = ExtResource("4_n3a55")
+spawner_balloon = NodePath("..")
+spawned_balloon = ExtResource("5_x1v3n")
+metadata/_custom_type_script = "uid://ed5t4f2dvlvg"

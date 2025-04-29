@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dywmqileip7vc"]
+
+[ext_resource type="Script" uid="uid://bph7yyaux074f" path="res://scenes/balloons/black_balloon.gd" id="1_7n42h"]
+[ext_resource type="ArrayMesh" uid="uid://mvquoj7a5uqy" path="res://assets/models/balloons/black/balloon.obj" id="1_85ft2"]
+[ext_resource type="Script" uid="uid://cx32y2mhi8evx" path="res://Components/health_component.gd" id="3_6yxx8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_umvu3"]
+radius = 0.7
+
+[node name="BlackBalloon" type="Area3D" node_paths=PackedStringArray("health")]
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("1_7n42h")
+health = NodePath("HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_umvu3")
+
+[node name="Balloon" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = ExtResource("1_85ft2")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_6yxx8")
+max_health = 1
+metadata/_custom_type_script = "uid://cx32y2mhi8evx"

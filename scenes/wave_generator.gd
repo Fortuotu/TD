@@ -1,6 +1,6 @@
 class_name WaveGenerator extends Node
 
-static var _this_scene = preload("res://scenes/wave_generator.tscn")
+static var _this_scene: PackedScene = preload("res://scenes/wave_generator.tscn")
 
 static func create(seed: int):
 	var inst = _this_scene.instantiate()
@@ -9,15 +9,21 @@ static func create(seed: int):
 
 var _balloon_scenes: Array[PackedScene] = [
 	preload("res://scenes/balloons/red_balloon.tscn"),
-	preload("res://scenes/balloons/blue_balloon.tscn")
+	preload("res://scenes/balloons/blue_balloon.tscn"),
+	preload("res://scenes/balloons/green_balloon.tscn"),
+	preload("res://scenes/balloons/yellow_balloon.tscn"),
+	preload("res://scenes/balloons/pink_balloon.tscn"),
+	
+	#preload("res://scenes/balloons/black_balloon.tscn"),
+	#preload("res://scenes/balloons/white_balloon.tscn")
 ]
 
-var _wave_counter = 0
+var _wave_counter: int = 0
 
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
-var _sidx: int = 0
-var _sidx_fuzz_range = 1
+var _sidx: int
+var _sidx_fuzz_range: int
 
 class SpawnEntry:
 	var balloon: Balloon
@@ -26,6 +32,9 @@ class SpawnEntry:
 	func _init(_balloon: Balloon, _delay: float) -> void:
 		balloon = _balloon
 		delay = _delay
+
+func _ready():
+	_recalculate_sidx()
 
 func _rng_chance(percent: float):
 	return _rng.randf_range(0.0, 100.0) <= percent
@@ -51,6 +60,10 @@ func _generate_burst() -> Array[SpawnEntry]:
 func _generate_break() -> Array[SpawnEntry]:
 	return [SpawnEntry.new(null, _rng.randf_range(0.0, 1.5  / (float(_wave_counter) + 1.0)))]
 
+func _recalculate_sidx():
+	_sidx = _wave_counter / 1
+	_sidx_fuzz_range = _sidx / 3 + 1
+
 func generate_next() -> Array[SpawnEntry]:
 	var wave: Array[SpawnEntry]
 	
@@ -61,7 +74,6 @@ func generate_next() -> Array[SpawnEntry]:
 		wave.append_array(_generate_break())
 	
 	_wave_counter += 1
-	_sidx = _wave_counter / 7
-	_sidx_fuzz_range = _sidx / 3 + 1
+	_recalculate_sidx()
 	
 	return wave
