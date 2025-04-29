@@ -28,5 +28,11 @@ func set_follow(follow: PathFollow3D):
 func get_follow() -> PathFollow3D:
 	return _follow
 
+func get_speed() -> float:
+	return _speed
+
+func set_speed(speed: float):
+	_speed = speed
+
 func transfer_overkill_damage(damage: int):
 	health.damage(damage)

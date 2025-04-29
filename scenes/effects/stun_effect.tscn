@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://jr40y0abu1t1"]
+
+[ext_resource type="Script" uid="uid://040qnevypyer" path="res://scenes/effects/stun_effect.gd" id="1_sinbv"]
+
+[node name="StunEffect" type="Node"]
+script = ExtResource("1_sinbv")
+
+[node name="Timer" type="Timer" parent="."]
