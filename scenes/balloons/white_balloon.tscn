@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp55jmw1w21rc"]
+[gd_scene load_steps=7 format=3 uid="uid://cp55jmw1w21rc"]
 
 [ext_resource type="Script" uid="uid://cfeen8phe4jsw" path="res://scenes/balloons/white_balloon.gd" id="1_5uoaa"]
 [ext_resource type="ArrayMesh" uid="uid://dpunvqi57j4v2" path="res://assets/models/balloons/white/balloon.obj" id="1_jiq1b"]
 [ext_resource type="Script" uid="uid://cx32y2mhi8evx" path="res://Components/health_component.gd" id="2_5uoaa"]
+[ext_resource type="Script" uid="uid://ed5t4f2dvlvg" path="res://scenes/components/pop_spawner.gd" id="4_xwjgq"]
+[ext_resource type="PackedScene" uid="uid://boxys0sovr7k1" path="res://scenes/balloons/pink_balloon.tscn" id="5_ys64f"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ktroy"]
 radius = 0.7
@@ -23,3 +25,10 @@ mesh = ExtResource("1_jiq1b")
 script = ExtResource("2_5uoaa")
 max_health = 1
 metadata/_custom_type_script = "uid://cx32y2mhi8evx"
+
+[node name="PopSpawner" type="Node" parent="." node_paths=PackedStringArray("spawner_balloon")]
+script = ExtResource("4_xwjgq")
+spawner_balloon = NodePath("..")
+spawned_balloon = ExtResource("5_ys64f")
+count = 2
+metadata/_custom_type_script = "uid://ed5t4f2dvlvg"

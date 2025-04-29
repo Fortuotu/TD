@@ -13,9 +13,8 @@ var _balloon_scenes: Array[PackedScene] = [
 	preload("res://scenes/balloons/green_balloon.tscn"),
 	preload("res://scenes/balloons/yellow_balloon.tscn"),
 	preload("res://scenes/balloons/pink_balloon.tscn"),
-	
-	#preload("res://scenes/balloons/black_balloon.tscn"),
-	#preload("res://scenes/balloons/white_balloon.tscn")
+	preload("res://scenes/balloons/black_balloon.tscn"),
+	preload("res://scenes/balloons/white_balloon.tscn")
 ]
 
 var _wave_counter: int = 0

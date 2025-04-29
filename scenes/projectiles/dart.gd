@@ -10,7 +10,7 @@ static func create(spawn: Vector3, target: Vector3):
 	return inst
 
 var dart_speed = 60.0
-var _damage = 1
+var _damage = 2
 var _lifetime = 5.0
 
 var _direction: Vector3
