@@ -17,7 +17,7 @@ var _wave_counter = 0
 var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 var _sidx: int = 0
-var _sidx_fuzz_range = 1000
+var _sidx_fuzz_range = 1
 
 class SpawnEntry:
 	var balloon: Balloon

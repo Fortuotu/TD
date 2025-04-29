@@ -2,7 +2,7 @@ class_name WaveSpawner extends Node
 
 @export var path: Path3D
 
-@onready var wave_gen: WaveGenerator = WaveGenerator.create(69)
+@onready var wave_gen: WaveGenerator = WaveGenerator.create(44)
 var _wave_active = false
 
 func _enter_tree() -> void:
