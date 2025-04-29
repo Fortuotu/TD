@@ -14,7 +14,11 @@ var _balloon_scenes: Array[PackedScene] = [
 	preload("res://scenes/balloons/yellow_balloon.tscn"),
 	preload("res://scenes/balloons/pink_balloon.tscn"),
 	preload("res://scenes/balloons/black_balloon.tscn"),
-	preload("res://scenes/balloons/white_balloon.tscn")
+	preload("res://scenes/balloons/white_balloon.tscn"),
+]
+
+var _boss_scenes: Array[PackedScene] = [
+	preload("res://scenes/balloons/moab.tscn")
 ]
 
 var _wave_counter: int = 0
@@ -56,8 +60,22 @@ func _generate_burst() -> Array[SpawnEntry]:
 	
 	return burst
 
+func _generate_bosses() -> Array[SpawnEntry]:
+	var bosses: Array[SpawnEntry] = []
+	var boss = _boss_scenes[0].instantiate()
+	
+	bosses.append(SpawnEntry.new(boss, 1))
+	
+	return bosses
+
 func _generate_break() -> Array[SpawnEntry]:
 	return [SpawnEntry.new(null, _rng.randf_range(0.0, 1.5  / (float(_wave_counter) + 1.0)))]
+
+func _can_spawn_boss() -> bool:
+	return _rng_chance(70.0) and _wave_counter >= 0
+
+func _generate_boss_burst() -> Array[SpawnEntry]:
+	var boss_burst: Array[SpawnEntry] = []
 
 func _recalculate_sidx():
 	_sidx = _wave_counter / 1
@@ -69,7 +87,11 @@ func generate_next() -> Array[SpawnEntry]:
 	var major_count = _rng.randi_range(0, _wave_counter / 4) + 3
 	
 	for i in range(major_count):
-		wave.append_array(_generate_burst())
+		if _can_spawn_boss():
+			wave.append_array(_generate_bosses())
+		else:
+			wave.append_array(_generate_burst())
+		
 		wave.append_array(_generate_break())
 	
 	_wave_counter += 1

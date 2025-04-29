@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfrivpp01urdl"]
+
+[ext_resource type="Script" uid="uid://b8srg2gj6q3so" path="res://scenes/balloons/moab.gd" id="1_j6klv"]
+[ext_resource type="Texture2D" uid="uid://dgdd1chul6aj" path="res://assets/models/moab/texture.png" id="2_q1jbc"]
+[ext_resource type="ArrayMesh" uid="uid://ccpouqefengrh" path="res://assets/models/moab/moab.obj" id="3_w5bdw"]
+[ext_resource type="Script" uid="uid://cx32y2mhi8evx" path="res://Components/health_component.gd" id="4_2v4cj"]
+[ext_resource type="Script" uid="uid://ed5t4f2dvlvg" path="res://scenes/components/pop_spawner.gd" id="5_htfue"]
+[ext_resource type="PackedScene" uid="uid://dywmqileip7vc" path="res://scenes/balloons/black_balloon.tscn" id="6_q1jbc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6wcow"]
+radius = 1.43783
+height = 5.98405
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0hcw"]
+albedo_texture = ExtResource("2_q1jbc")
+
+[node name="Moab" type="Area3D" node_paths=PackedStringArray("health")]
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_j6klv")
+health = NodePath("HealthComponent")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.816062)
+shape = SubResource("CapsuleShape3D_6wcow")
+
+[node name="Moab" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_d0hcw")
+mesh = ExtResource("3_w5bdw")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_2v4cj")
+max_health = 40
+metadata/_custom_type_script = "uid://cx32y2mhi8evx"
+
+[node name="PopSpawner" type="Node" parent="." node_paths=PackedStringArray("spawner_balloon")]
+script = ExtResource("5_htfue")
+spawner_balloon = NodePath("..")
+spawned_balloon = ExtResource("6_q1jbc")
+count = 4
+metadata/_custom_type_script = "uid://ed5t4f2dvlvg"

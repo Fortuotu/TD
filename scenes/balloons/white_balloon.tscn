@@ -9,10 +9,11 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_ktroy"]
 radius = 0.7
 
-[node name="WhiteBalloon" type="Area3D"]
+[node name="WhiteBalloon" type="Area3D" node_paths=PackedStringArray("health")]
 collision_layer = 128
 collision_mask = 0
 script = ExtResource("1_5uoaa")
+health = NodePath("HealthComponent")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_ktroy")
