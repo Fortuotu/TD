@@ -35,3 +35,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46386e-05, 0, -4.22411)
 
 [connection signal="area_entered" from="Pivot/ItemGrabber" to="." method="_on_item_grabber_area_entered"]
+[connection signal="body_entered" from="Pivot/ItemGrabber" to="." method="_on_item_grabber_body_entered"]

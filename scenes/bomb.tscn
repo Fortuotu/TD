@@ -6,9 +6,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_vpdcx"]
 radius = 1.0
 
-[node name="Bomb" type="Area3D"]
-collision_layer = 64
-collision_mask = 0
+[node name="Bomb" type="RigidBody3D"]
+collision_layer = 65
 script = ExtResource("1_vpdcx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
