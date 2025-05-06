@@ -4,14 +4,15 @@
 [ext_resource type="Script" uid="uid://bxwcf8vcfjyh7" path="res://scenes/bomb.gd" id="1_vpdcx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vpdcx"]
-radius = 1.0
 
 [node name="Bomb" type="RigidBody3D"]
 collision_layer = 65
+mass = 0.5
 script = ExtResource("1_vpdcx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_vpdcx")
 
 [node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("1_4kkau")

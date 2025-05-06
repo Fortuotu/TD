@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1gtqhhtumhuk"]
+[gd_scene load_steps=4 format=3 uid="uid://d1gtqhhtumhuk"]
 
 [ext_resource type="ArrayMesh" uid="uid://dmb8uynbutqoq" path="res://assets/models/market/market.obj" id="1_1or4p"]
 [ext_resource type="Script" uid="uid://br5ww3g11plol" path="res://scenes/market/market.gd" id="1_uiuro"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uiuro"]
+size = Vector3(3.98885, 2.39758, 2.445)
 
 [node name="Market" type="Node3D"]
 script = ExtResource("1_uiuro")
@@ -10,4 +13,10 @@ script = ExtResource("1_uiuro")
 mesh = ExtResource("1_1or4p")
 
 [node name="Item1" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80083, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35279, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00475574, -0.193789, 0)
+shape = SubResource("BoxShape3D_uiuro")

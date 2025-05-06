@@ -48,15 +48,26 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if picked_object:
-		var force: Vector3 = $Pivot/ItemHeld.global_position - picked_object.global_position
-		force *= 8.0
+		var target_position: Vector3 = $Pivot/ItemHeld.global_position
+		var object_position: Vector3 = picked_object.global_position
 		
-		# Damping based on object's current linear velocity
-		var damping_factor = 0.8  # tweak this value between 0.0 and 1.0
-		force -= picked_object.linear_velocity * damping_factor
+		var dir: Vector3 = target_position - object_position
+		var distance: float = direction.length()
+		var max_distance: float = 3.0
 		
-		picked_object.apply_force(force)
-
+		# Only apply force if within max distance or pulling back in
+		if distance < max_distance:
+			var force: Vector3 = dir * 4.0  # spring force
+			force -= picked_object.linear_velocity * 0.95  # damping
+			picked_object.apply_force(force)
+		else:
+			# Object is too far — apply a strong pull directly toward the target
+			var pull_force: Vector3 = dir.normalized() * 100.0
+			picked_object.apply_force(pull_force)
+		
+			# Optional: limit speed when it's too far
+			if picked_object.linear_velocity.length() > 10.0:
+				picked_object.linear_velocity = picked_object.linear_velocity.normalized() * 10.0
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
