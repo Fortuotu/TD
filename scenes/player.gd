@@ -75,9 +75,12 @@ func _input(event: InputEvent) -> void:
 		
 		pitch = clamp(pitch - event.relative.y * MOUSE_SENSITIVITY, deg_to_rad(-70.0), deg_to_rad(70.0))
 		$Pivot.rotation.x = pitch
-
-func _on_item_grabber_body_entered(body: Node3D) -> void:
-	if picked_object:
-		return
-	
-	picked_object = body
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			var collider = $Pivot/Camera3D/ItemGrabber.get_collider()
+			if not collider:
+				return
+			
+			picked_object = collider
+		else:
+			picked_object = null

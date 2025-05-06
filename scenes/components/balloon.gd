@@ -23,7 +23,6 @@ func _on_pop():
 	print(Global.money_counter)
 	before_pop.emit()
 	_follow.queue_free()
-	
 
 func set_follow(follow: PathFollow3D):
 	_follow = follow
