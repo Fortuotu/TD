@@ -19,8 +19,11 @@ func _physics_process(delta: float) -> void:
 	_follow.progress += _speed * delta
 
 func _on_pop():
+	Global.money_counter += 1
+	print(Global.money_counter)
 	before_pop.emit()
 	_follow.queue_free()
+	
 
 func set_follow(follow: PathFollow3D):
 	_follow = follow

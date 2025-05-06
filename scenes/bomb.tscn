@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bxwcf8vcfjyh7" path="res://scenes/bomb.gd" id="1_vpdcx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vpdcx"]
+radius = 0.501414
 
 [node name="Bomb" type="RigidBody3D"]
 collision_layer = 65
