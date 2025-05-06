@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1gtqhhtumhuk"]
+
+[ext_resource type="ArrayMesh" uid="uid://dmb8uynbutqoq" path="res://assets/models/market/market.obj" id="1_1or4p"]
+[ext_resource type="Script" uid="uid://br5ww3g11plol" path="res://scenes/market/market.gd" id="1_uiuro"]
+
+[node name="Market" type="Node3D"]
+script = ExtResource("1_uiuro")
+
+[node name="Market" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_1or4p")
+
+[node name="Item1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80083, 0)

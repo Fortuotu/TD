@@ -28,7 +28,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
 		jump = true
 	
-	var cam_xform = $Camera3D.get_global_transform()
+	var cam_xform = $Pivot.get_global_transform()
 	
 	var forward = cam_xform.basis.z.normalized()
 	var right = cam_xform.basis.x.normalized()
@@ -50,4 +50,13 @@ func _input(event: InputEvent) -> void:
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		
 		pitch = clamp(pitch - event.relative.y * MOUSE_SENSITIVITY, deg_to_rad(-70.0), deg_to_rad(70.0))
-		$Camera3D.rotation.x = pitch
+		$Pivot.rotation.x = pitch
+
+func _on_item_grabber_area_entered(area: Area3D) -> void:
+	var bomb: Bomb = area
+	
+	print(bomb)
+	bomb.get_parent().remove_child(bomb)
+	$Pivot/ItemHeld.add_sibling(bomb)
+	bomb.position = Vector3.ZERO
+	bomb.collider.disabled = true

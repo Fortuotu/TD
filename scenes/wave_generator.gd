@@ -74,9 +74,6 @@ func _generate_break() -> Array[SpawnEntry]:
 func _can_spawn_boss() -> bool:
 	return _rng_chance(70.0) and _wave_counter >= 0
 
-func _generate_boss_burst() -> Array[SpawnEntry]:
-	var boss_burst: Array[SpawnEntry] = []
-
 func _recalculate_sidx():
 	_sidx = _wave_counter / 1
 	_sidx_fuzz_range = _sidx / 3 + 1

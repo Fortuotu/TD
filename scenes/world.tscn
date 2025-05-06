@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://jxr57ixjvmwj"]
+[gd_scene load_steps=12 format=3 uid="uid://jxr57ixjvmwj"]
 
 [ext_resource type="PackedScene" uid="uid://n1rlvafaj4cn" path="res://scenes/player.tscn" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cdxcd4mmn3uml" path="res://scenes/wave_spawner.tscn" id="2_k0juu"]
 [ext_resource type="PackedScene" uid="uid://iqux71ke5328" path="res://scenes/towers/tower.tscn" id="3_71j4m"]
+[ext_resource type="PackedScene" uid="uid://d1gtqhhtumhuk" path="res://scenes/market/market.tscn" id="4_k0juu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mv2x6"]
 size = Vector3(25, 1, 25)
@@ -60,3 +61,6 @@ path = NodePath("../Path3D")
 
 [node name="Tower" parent="." instance=ExtResource("3_71j4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68447, 2.5, -10.2734)
+
+[node name="Market" parent="." instance=ExtResource("4_k0juu")]
+transform = Transform3D(-0.0563965, 0, -0.998408, 0, 1, 0, 0.998408, 0, -0.0563965, 6.98107, 1.90054, 3.06789)
