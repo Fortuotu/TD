@@ -8,6 +8,8 @@ const MOUSE_SENSITIVITY: float = 0.001
 
 var pitch = 0.0
 
+var picked_object: Bomb
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -44,6 +46,15 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 	
 	move_and_slide()
+	
+	if picked_object:
+		var force: Vector3 = $Pivot/ItemHeld.global_position - picked_object.global_position
+		
+		force.x *= 8.0
+		force.z *= 8.0
+		force.y *= 8.0
+		
+		picked_object.apply_force(force)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -52,13 +63,8 @@ func _input(event: InputEvent) -> void:
 		pitch = clamp(pitch - event.relative.y * MOUSE_SENSITIVITY, deg_to_rad(-70.0), deg_to_rad(70.0))
 		$Pivot.rotation.x = pitch
 
-
 func _on_item_grabber_body_entered(body: Node3D) -> void:
-	var bomb: Bomb = body
-	if bomb.get_parent() == $Pivot/ItemHeld:
+	if picked_object:
 		return
 	
-	bomb.get_parent().remove_child(bomb)
-	$Pivot/ItemHeld.add_child(bomb)
-	bomb.position = Vector3.ZERO
-	bomb.collider.disabled = true
+	picked_object = body
