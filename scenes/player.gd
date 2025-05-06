@@ -49,12 +49,14 @@ func _physics_process(delta):
 	
 	if picked_object:
 		var force: Vector3 = $Pivot/ItemHeld.global_position - picked_object.global_position
+		force *= 8.0
 		
-		force.x *= 8.0
-		force.z *= 8.0
-		force.y *= 8.0
+		# Damping based on object's current linear velocity
+		var damping_factor = 0.8  # tweak this value between 0.0 and 1.0
+		force -= picked_object.linear_velocity * damping_factor
 		
 		picked_object.apply_force(force)
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
