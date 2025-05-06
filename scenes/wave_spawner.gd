@@ -38,6 +38,7 @@ func spawn_balloon_at_progress(balloon: Balloon, progress: float):
 	balloon.get_follow().progress = progress
 	follow.add_child(balloon)
 	path.add_child(follow)
+	follow.h_offset = 0.75
 
 func spawn_balloon(balloon: Balloon):
 	spawn_balloon_at_progress(balloon, 0.0)
