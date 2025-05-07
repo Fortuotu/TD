@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cksdq436xdunn"]
+
+[ext_resource type="Script" uid="uid://cqlmc2vfo2w54" path="res://scenes/components/hoverer.gd" id="1_8cd7q"]
+
+[node name="Hoverer" type="Node"]
+script = ExtResource("1_8cd7q")

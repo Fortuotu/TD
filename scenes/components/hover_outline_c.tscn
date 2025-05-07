@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhvngl36n1tl1"]
+
+[ext_resource type="Script" uid="uid://dd02s8ry5ahpu" path="res://scenes/components/hover_outline_c.gd" id="1_w1yw3"]
+
+[node name="HoverOutlineC" type="Node"]
+script = ExtResource("1_w1yw3")

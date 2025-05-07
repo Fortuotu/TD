@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			var collider = $Pivot/Camera3D/ItemGrabber.get_collider()
-			if not collider:
+			if not collider or collider is not Bomb:
 				return
 			
 			picked_object = collider
