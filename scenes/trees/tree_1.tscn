@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://df6s6sbtjth0o"]
+
+[ext_resource type="ArrayMesh" uid="uid://cxghl2xpmelmf" path="res://assets/models/Trees/tree1.obj" id="1_780sb"]
+[ext_resource type="Texture2D" uid="uid://c3p0kdt34re67" path="res://assets/models/Trees/tree_texture.png" id="2_xvalw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6viw8"]
+albedo_texture = ExtResource("2_xvalw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r01is"]
+size = Vector3(6.45932, 13.0238, 6.45927)
+
+[node name="Tree1" type="RigidBody3D"]
+
+[node name="Tree1_Model" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_780sb")
+surface_material_override/0 = SubResource("StandardMaterial3D_6viw8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0251827, 0.512291, 0.0125656)
+shape = SubResource("BoxShape3D_r01is")

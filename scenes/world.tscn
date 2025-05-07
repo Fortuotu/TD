@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jxr57ixjvmwj"]
+[gd_scene load_steps=13 format=3 uid="uid://jxr57ixjvmwj"]
 
 [ext_resource type="PackedScene" uid="uid://n1rlvafaj4cn" path="res://scenes/player.tscn" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cdxcd4mmn3uml" path="res://scenes/wave_spawner.tscn" id="2_k0juu"]
@@ -6,13 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://d1gtqhhtumhuk" path="res://scenes/market/market.tscn" id="4_k0juu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mv2x6"]
-size = Vector3(25, 1, 25)
+size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_n2rxu"]
-size = Vector3(25, 1, 25)
+size = Vector3(100, 1, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2rxu"]
 albedo_color = Color(0, 0.533333, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k0juu"]
+size = Vector3(25, 1, 25)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r345k"]
 
@@ -42,6 +45,24 @@ shape = SubResource("BoxShape3D_mv2x6")
 mesh = SubResource("BoxMesh_n2rxu")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_n2rxu")
+
+[node name="World_Box" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.32, 11.7968, 12.7511)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World_Box"]
+shape = SubResource("BoxShape3D_k0juu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World_Box"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -12.5, -12.5, 0)
+shape = SubResource("BoxShape3D_k0juu")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="World_Box"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 12.5, -12.5, 0)
+shape = SubResource("BoxShape3D_k0juu")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="World_Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
+shape = SubResource("BoxShape3D_k0juu")
 
 [node name="Player" parent="." instance=ExtResource("1_4wyf3")]
 transform = Transform3D(0.999814, 0.0192847, 0, -0.0192847, 0.999814, 0, 0, 0, 1, 0.530973, 4.43049, 8.24269)
