@@ -9,7 +9,7 @@ albedo_texture = ExtResource("2_xvalw")
 [sub_resource type="BoxShape3D" id="BoxShape3D_r01is"]
 size = Vector3(6.45932, 13.0238, 6.45927)
 
-[node name="Tree1" type="RigidBody3D"]
+[node name="Tree1" type="StaticBody3D"]
 
 [node name="Tree1_Model" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_780sb")

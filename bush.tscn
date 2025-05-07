@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnh17svonyvw6"]
+
+[ext_resource type="ArrayMesh" uid="uid://m0gqtg58a0c7" path="res://assets/models/bush/bush.obj" id="1_28u5p"]
+[ext_resource type="Texture2D" uid="uid://dun4hxh8e4svx" path="res://assets/models/bush/bush_texture.png" id="2_ilexf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ki2aw"]
+albedo_texture = ExtResource("2_ilexf")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ahiml"]
+radius = 1.92127
+height = 5.86833
+
+[node name="RigidBody3D" type="StaticBody3D"]
+
+[node name="Model" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_28u5p")
+surface_material_override/0 = SubResource("StandardMaterial3D_ki2aw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.747507)
+shape = SubResource("CapsuleShape3D_ahiml")
