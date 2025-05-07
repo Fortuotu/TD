@@ -1,10 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds5ujskhxtyg8"]
+[gd_scene load_steps=8 format=3 uid="uid://ds5ujskhxtyg8"]
 
-[ext_resource type="ArrayMesh" uid="uid://b1amywqi8qouk" path="res://assets/models/bomb/bomb.obj" id="1_4kkau"]
+[ext_resource type="ArrayMesh" uid="uid://dchsk2u2h3ivo" path="res://assets/models/bomb/bomb.obj" id="1_4kkau"]
 [ext_resource type="Script" uid="uid://bxwcf8vcfjyh7" path="res://scenes/bomb.gd" id="1_vpdcx"]
+[ext_resource type="Shader" uid="uid://d0e07gcnwqrpu" path="res://shaders/bomb.gdshader" id="3_84slv"]
+[ext_resource type="Texture2D" uid="uid://dgj7cv5fclg0t" path="res://assets/models/bomb/texture.png" id="4_nxi8k"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vpdcx"]
 radius = 0.501414
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_84slv"]
+render_priority = 0
+shader = ExtResource("3_84slv")
+shader_parameter/my_texture = ExtResource("4_nxi8k")
+shader_parameter/t = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_vpdcx"]
+radius = 0.1
+height = 0.2
 
 [node name="Bomb" type="RigidBody3D"]
 collision_layer = 65
@@ -17,3 +29,7 @@ shape = SubResource("SphereShape3D_vpdcx")
 [node name="Model" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("1_4kkau")
+surface_material_override/0 = SubResource("ShaderMaterial_84slv")
+
+[node name="Explosion" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_vpdcx")

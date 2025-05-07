@@ -21,8 +21,8 @@ mesh = SubResource("CapsuleMesh_4flbx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 
 [node name="ItemGrabber" type="RayCast3D" parent="Pivot/Camera3D"]
-target_position = Vector3(0, 0, -5)
+target_position = Vector3(0, 0, -2.5)
 collision_mask = 64
 
-[node name="ItemHeld" type="Node3D" parent="Pivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.46386e-05, 0, -4.22411)
+[node name="ItemHeld" type="Node3D" parent="Pivot/Camera3D/ItemGrabber"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)

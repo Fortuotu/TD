@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var speed: float = 14.0
+@export var speed: float = 7.0
 @export var fall_acceleration: float = 75.0
 @export var jump_velocity = 25.0
 
@@ -30,6 +30,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"):
 		jump = true
 	
+	if Input.is_action_just_pressed("use_item") && picked_object:
+		picked_object.start_tick()
+	
 	var cam_xform = $Pivot.get_global_transform()
 	
 	var forward = cam_xform.basis.z.normalized()
@@ -46,28 +49,6 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 	
 	move_and_slide()
-	
-	if picked_object:
-		var target_position: Vector3 = $Pivot/ItemHeld.global_position
-		var object_position: Vector3 = picked_object.global_position
-		
-		var dir: Vector3 = target_position - object_position
-		var distance: float = direction.length()
-		var max_distance: float = 3.0
-		
-		# Only apply force if within max distance or pulling back in
-		if distance < max_distance:
-			var force: Vector3 = dir * 4.0  # spring force
-			force -= picked_object.linear_velocity * 0.95  # damping
-			picked_object.apply_force(force)
-		else:
-			# Object is too far — apply a strong pull directly toward the target
-			var pull_force: Vector3 = dir.normalized() * 100.0
-			picked_object.apply_force(pull_force)
-		
-			# Optional: limit speed when it's too far
-			if picked_object.linear_velocity.length() > 10.0:
-				picked_object.linear_velocity = picked_object.linear_velocity.normalized() * 10.0
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -82,5 +63,10 @@ func _input(event: InputEvent) -> void:
 				return
 			
 			picked_object = collider
+			picked_object.follow_node($Pivot/Camera3D/ItemGrabber/ItemHeld)
 		else:
+			if not picked_object:
+				return
+			
+			picked_object.stop_follow()
 			picked_object = null
