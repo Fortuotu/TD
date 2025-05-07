@@ -28,7 +28,7 @@ func _tween_shader(value: float):
 
 func _explode():
 	const duration: float = 0.22
-	const final_scale: float = 40.0
+	const final_scale: float = 80.0
 	
 	$Model.visible = false
 	
@@ -47,3 +47,10 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	linear_velocity = (_followed_node.global_position - global_position) * 6.0
+
+func _on_explosion_area_area_entered(area: Area3D) -> void:
+	if area is not Balloon:
+		return
+	
+	var balloon: Balloon = area
+	balloon.health.damage(10)

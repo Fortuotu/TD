@@ -72,7 +72,7 @@ func _generate_break() -> Array[SpawnEntry]:
 	return [SpawnEntry.new(null, _rng.randf_range(0.0, 1.5  / (float(_wave_counter) + 1.0)))]
 
 func _can_spawn_boss() -> bool:
-	return _rng_chance(70.0) and _wave_counter >= 0
+	return _rng_chance(15.0) and _wave_counter >= 10
 
 func _recalculate_sidx():
 	_sidx = _wave_counter / 1

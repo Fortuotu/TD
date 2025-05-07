@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds5ujskhxtyg8"]
+[gd_scene load_steps=9 format=3 uid="uid://ds5ujskhxtyg8"]
 
 [ext_resource type="ArrayMesh" uid="uid://dchsk2u2h3ivo" path="res://assets/models/bomb/bomb.obj" id="1_4kkau"]
 [ext_resource type="Script" uid="uid://bxwcf8vcfjyh7" path="res://scenes/bomb.gd" id="1_vpdcx"]
@@ -18,6 +18,9 @@ shader_parameter/t = 0.0
 radius = 0.1
 height = 0.2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_1hf1o"]
+radius = 0.1
+
 [node name="Bomb" type="RigidBody3D"]
 collision_layer = 65
 mass = 0.5
@@ -31,5 +34,17 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("1_4kkau")
 surface_material_override/0 = SubResource("ShaderMaterial_84slv")
 
-[node name="Explosion" type="MeshInstance3D" parent="."]
+[node name="Explosion" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Explosion"]
 mesh = SubResource("SphereMesh_vpdcx")
+skeleton = NodePath("../..")
+
+[node name="ExplosionArea" type="Area3D" parent="Explosion"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="Collider" type="CollisionShape3D" parent="Explosion/ExplosionArea"]
+shape = SubResource("SphereShape3D_1hf1o")
+
+[connection signal="area_entered" from="Explosion/ExplosionArea" to="." method="_on_explosion_area_area_entered"]

@@ -7,7 +7,7 @@ radius = 9.65455
 
 [node name="TowerRange" type="Area3D"]
 collision_layer = 0
-collision_mask = 128
+collision_mask = 0
 script = ExtResource("1_m0tkq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
