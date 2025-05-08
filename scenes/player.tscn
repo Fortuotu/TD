@@ -4,8 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cksdq436xdunn" path="res://scenes/components/hoverer.tscn" id="2_g2els"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+radius = 0.7
+height = 3.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
+radius = 0.7
+height = 3.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
@@ -17,6 +21,7 @@ shape = SubResource("CapsuleShape3D_sh265")
 mesh = SubResource("CapsuleMesh_4flbx")
 
 [node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
