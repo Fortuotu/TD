@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://jxr57ixjvmwj"]
+[gd_scene load_steps=15 format=3 uid="uid://jxr57ixjvmwj"]
 
 [ext_resource type="PackedScene" uid="uid://n1rlvafaj4cn" path="res://scenes/player.tscn" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cdxcd4mmn3uml" path="res://scenes/wave_spawner.tscn" id="2_k0juu"]
 [ext_resource type="PackedScene" uid="uid://iqux71ke5328" path="res://scenes/towers/tower.tscn" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://d1gtqhhtumhuk" path="res://scenes/market/market.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://df6s6sbtjth0o" path="res://scenes/trees/tree_1.tscn" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://bnh17svonyvw6" path="res://bush.tscn" id="6_qfnet"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mv2x6"]
 size = Vector3(100, 1, 100)
@@ -293,3 +294,62 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.5478, 6.5, -0.890392)
 
 [node name="Tree63" parent="Trees" instance=ExtResource("5_71j4m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.6588, 6.5, -13.9118)
+
+[node name="Bushes" type="Node3D" parent="."]
+
+[node name="Bush" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.774, 1.4, 18.086)
+
+[node name="Bush2" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(0.690175, 0, 0.723642, 0, 1, 0, -0.723642, 0, 0.690175, -7.37412, 1.41141, 18.086)
+
+[node name="Bush3" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(0.690175, 0, 0.723642, 0, 1, 0, -0.723642, 0, 0.690175, -24.7264, 1.41141, 9.55195)
+
+[node name="Bush4" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.8735, 0, 0.486823, 0, 1, 0, -0.486823, 0, -0.8735, -18.2207, 1.41141, -8.5299)
+
+[node name="Bush5" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.558672, 0, 0.829389, 0, 1, 0, -0.829389, 0, -0.558672, -2.6286, 1.41141, -20.248)
+
+[node name="Bush6" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(0.414979, 0, 0.909831, 0, 1, 0, -0.909831, 0, 0.414979, -15.0268, 1.41141, -20.248)
+
+[node name="Bush7" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(0.92968, 0, -0.368368, 0, 1, 0, 0.368368, 0, 0.92968, 35.2237, 1.41141, 5.65778)
+
+[node name="Bush8" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.638069, 0, -0.769979, 0, 1, 0, 0.769979, 0, -0.638069, 21.9775, 1.41141, -11.6065)
+
+[node name="Bush9" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.907712, 0, 0.419595, 0, 1, 0, -0.419595, 0, -0.907712, 23.4115, 1.41141, 4.27135)
+
+[node name="Bush10" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.994562, 0, -0.104147, 0, 1, 0, 0.104147, 0, -0.994562, 12.1071, 1.41141, -26.1466)
+
+[node name="Bush11" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.821826, 0, -0.569739, 0, 1, 0, 0.569739, 0, -0.821826, 28.448, 1.4114, -23.3309)
+
+[node name="Bush12" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.821826, 0, -0.569739, 0, 1, 0, 0.569739, 0, -0.821826, -2.12236, 1.41141, -30.1754)
+
+[node name="Bush13" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(0.168231, 0, -0.985748, 0, 1, 0, 0.985748, 0, 0.168231, 16.4179, 1.41141, 16.0195)
+
+[node name="Bush14" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(0.168231, 0, -0.985748, 0, 1, 0, 0.985748, 0, 0.168231, -25.082, 1.41141, -0.604591)
+
+[node name="Bush15" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.927999, 0, -0.372583, 0, 1, 0, 0.372583, 0, -0.927999, -20.3859, 1.41141, 12.0375)
+
+[node name="Bush16" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.927999, 0, -0.372583, 0, 1, 0, 0.372583, 0, -0.927999, 34.6384, 1.41141, 13.6636)
+
+[node name="Bush17" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(-0.76401, 0, 0.645204, 0, 1, 0, -0.645204, 0, -0.76401, 16.8657, 1.4114, 26.5592)
+
+[node name="Bush18" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(0.447135, 0, 0.894467, 0, 1, 0, -0.894467, 0, 0.447135, -1.33065, 1.41141, 27.3984)
+
+[node name="Bush19" parent="Bushes" instance=ExtResource("6_qfnet")]
+transform = Transform3D(0.505356, 0, 0.862911, 0, 1, 0, -0.862911, 0, 0.505356, 35.8277, 1.4114, -1.73438)

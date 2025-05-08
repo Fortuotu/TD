@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bfrivpp01urdl"]
 
-[ext_resource type="Script" path="res://scenes/balloons/moab.gd" id="1_j6klv"]
+[ext_resource type="Script" uid="uid://b8srg2gj6q3so" path="res://scenes/balloons/moab.gd" id="1_j6klv"]
 [ext_resource type="Texture2D" uid="uid://dgdd1chul6aj" path="res://assets/models/moab/texture.png" id="2_q1jbc"]
 [ext_resource type="ArrayMesh" uid="uid://ccpouqefengrh" path="res://assets/models/moab/moab.obj" id="3_w5bdw"]
 [ext_resource type="Script" uid="uid://cx32y2mhi8evx" path="res://Components/health_component.gd" id="4_2v4cj"]
