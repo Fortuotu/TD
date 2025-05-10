@@ -69,9 +69,6 @@ shape = SubResource("BoxShape3D_k0juu")
 
 [node name="Player" parent="." node_paths=PackedStringArray("upgrade_ui") instance=ExtResource("1_4wyf3")]
 transform = Transform3D(0.999814, 0.0192847, 0, -0.0192847, 0.999814, 0, 0, 0, 1, 0.530973, 4.43049, 8.24269)
-speed = 7.0
-fall_acceleration = 75.0
-jump_velocity = 25.0
 upgrade_ui = NodePath("../CanvasLayer/UpgradeUi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
