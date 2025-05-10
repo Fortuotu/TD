@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4akfhwrv8obm"]
+
+[ext_resource type="Script" uid="uid://dtn5ao0hawgkv" path="res://scenes/upgrade_button.gd" id="1_vd32k"]
+
+[node name="UpgradeButton" type="Button"]
+script = ExtResource("1_vd32k")

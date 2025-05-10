@@ -6,18 +6,16 @@ var player_controller: PlayerController
 func attach(upgrade_manager: UpgradeManager):
 	_manager = upgrade_manager
 	
-	
-	$Label.text = _manager.get_current().description
+	$UpgradeButton.display(_manager.get_current())
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 	player_controller.disable()
 	visible = true
-	
 
 func detach():
 	_manager = null
 	
-	$Label.text = ""
+	$UpgradeButton.reset()
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player_controller.enable()
@@ -26,15 +24,6 @@ func detach():
 func _on_close_button_down() -> void:
 	detach()
 
-func _on_upgrade_mouse_entered() -> void:
-	$Label.visible = true
-	
-
-func _on_upgrade_mouse_exited() -> void:
-	$Label.visible = false
-
-func _label_follow() -> void:
-	pass
-
-func _on_upgrade_pressed() -> void:
+func _on_upgrade_button_down() -> void:
 	_manager.upgrade()
+	$UpgradeButton.display(_manager.get_current())

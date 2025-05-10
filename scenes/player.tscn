@@ -12,10 +12,10 @@ height = 3.0
 radius = 0.7
 height = 3.0
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hoverer", "controller")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("controller", "hoverer")]
 script = ExtResource("1_4flbx")
-hoverer = NodePath("Hoverer")
 controller = NodePath("PlayerController")
+hoverer = NodePath("Hoverer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sh265")

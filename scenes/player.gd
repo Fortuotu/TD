@@ -1,16 +1,8 @@
 class_name Player extends CharacterBody3D
 
-@export var speed: float = 7.0
-@export var fall_acceleration: float = 75.0
-@export var jump_velocity = 25.0
-
-@export var upgrade_ui: UpgradeUI
-@export var hoverer: HovererComponent
 @export var controller: PlayerController
-
-const MOUSE_SENSITIVITY: float = 0.001
-
-var pitch = 0.0
+@export var hoverer: HovererComponent
+@export var upgrade_ui: UpgradeUI
 
 var picked_object: Bomb
 

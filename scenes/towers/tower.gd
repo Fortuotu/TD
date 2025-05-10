@@ -3,13 +3,13 @@ class_name Tower extends Node3D
 var upgrade_manager = UpgradeManager.new()
 
 var _upgrades: Array[Upgrade] = [
-	Upgrade.create(_upgrade_1, "this upgrade does nothing"),
-	Upgrade.create(_upgrade_2, "upgrade 2")
+	Upgrade.create(_upgrade_1, "this upgrade makes the monkey red"),
+	Upgrade.create(_upgrade_2, "this upgrade doesn't do anything")
 ]
 
 func _upgrade_1():
-	$Mesh.mesh.material.albeido = Color.RED
-	print("Upgrade 1")
+	var material = $Mesh.get_active_material(0) as StandardMaterial3D
+	material.albedo_color = Color.RED
 
 func _upgrade_2():
 	print("Upgrade 2")
