@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://n1rlvafaj4cn"]
+[gd_scene load_steps=6 format=3 uid="uid://n1rlvafaj4cn"]
 
 [ext_resource type="Script" uid="uid://o7jxr8m5go1i" path="res://scenes/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://cksdq436xdunn" path="res://scenes/components/hoverer_component.tscn" id="2_g2els"]
+[ext_resource type="Script" uid="uid://becgaynubog4u" path="res://scenes/components/player_controller.gd" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
 radius = 0.7
@@ -11,9 +12,10 @@ height = 3.0
 radius = 0.7
 height = 3.0
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hoverer")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hoverer", "controller")]
 script = ExtResource("1_4flbx")
 hoverer = NodePath("Hoverer")
+controller = NodePath("PlayerController")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_sh265")
@@ -37,3 +39,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
 
 [node name="Hoverer" parent="." node_paths=PackedStringArray("ray_cast") instance=ExtResource("2_g2els")]
 ray_cast = NodePath("../Pivot/Camera3D/ItemGrabber")
+
+[node name="PlayerController" type="Node" parent="." node_paths=PackedStringArray("player", "pivot")]
+script = ExtResource("3_qhqgy")
+player = NodePath("..")
+pivot = NodePath("../Pivot")
+metadata/_custom_type_script = "uid://becgaynubog4u"

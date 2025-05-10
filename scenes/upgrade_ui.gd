@@ -1,7 +1,7 @@
 class_name UpgradeUI extends Control
 
 var _manager: UpgradeManager
-var player: Player
+var player_controller: PlayerController
 
 func attach(upgrade_manager: UpgradeManager):
 	_manager = upgrade_manager
@@ -9,7 +9,7 @@ func attach(upgrade_manager: UpgradeManager):
 	$Upgrade.text = _manager.get_current().description
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-	player.controller_enabled = false
+	player_controller.disable()
 	visible = true
 
 func detach():
@@ -18,7 +18,7 @@ func detach():
 	$Upgrade.text = ""
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	player.controller_enabled = true
+	player_controller.enable()
 	visible = false
 
 func _on_close_button_down() -> void:
