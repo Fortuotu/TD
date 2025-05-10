@@ -1,11 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://jxr57ixjvmwj"]
+[gd_scene load_steps=16 format=3 uid="uid://jxr57ixjvmwj"]
 
 [ext_resource type="PackedScene" uid="uid://n1rlvafaj4cn" path="res://scenes/player.tscn" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://cdxcd4mmn3uml" path="res://scenes/wave_spawner.tscn" id="2_k0juu"]
 [ext_resource type="PackedScene" uid="uid://iqux71ke5328" path="res://scenes/towers/tower.tscn" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://d1gtqhhtumhuk" path="res://scenes/market/market.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://df6s6sbtjth0o" path="res://scenes/trees/tree_1.tscn" id="5_71j4m"]
-[ext_resource type="PackedScene" uid="uid://bnh17svonyvw6" path="res://bush.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://bnh17svonyvw6" path="res://scenes/bush.tscn" id="6_qfnet"]
+[ext_resource type="PackedScene" uid="uid://dtqahtw6sdvlu" path="res://scenes/upgrade_ui.tscn" id="7_i7141"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mv2x6"]
 size = Vector3(100, 1, 100)
@@ -66,8 +67,9 @@ shape = SubResource("BoxShape3D_k0juu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
 shape = SubResource("BoxShape3D_k0juu")
 
-[node name="Player" parent="." instance=ExtResource("1_4wyf3")]
+[node name="Player" parent="." node_paths=PackedStringArray("upgrade_ui") instance=ExtResource("1_4wyf3")]
 transform = Transform3D(0.999814, 0.0192847, 0, -0.0192847, 0.999814, 0, 0, 0, 1, 0.530973, 4.43049, 8.24269)
+upgrade_ui = NodePath("../CanvasLayer/UpgradeUi")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
@@ -353,3 +355,8 @@ transform = Transform3D(0.447135, 0, 0.894467, 0, 1, 0, -0.894467, 0, 0.447135, 
 
 [node name="Bush19" parent="Bushes" instance=ExtResource("6_qfnet")]
 transform = Transform3D(0.505356, 0, 0.862911, 0, 1, 0, -0.862911, 0, 0.505356, 35.8277, 1.4114, -1.73438)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UpgradeUi" parent="CanvasLayer" instance=ExtResource("7_i7141")]
+visible = false

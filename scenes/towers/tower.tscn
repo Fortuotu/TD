@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c3rltqrtnt7v4" path="res://scenes/components/tower_range.tscn" id="1_2nklu"]
 [ext_resource type="Script" uid="uid://gssfqoehjgnw" path="res://scenes/towers/tower.gd" id="1_icl2u"]
-[ext_resource type="PackedScene" uid="uid://dhvngl36n1tl1" path="res://scenes/components/hover_outline_c.tscn" id="3_vfpy0"]
+[ext_resource type="PackedScene" uid="uid://dhvngl36n1tl1" path="res://scenes/components/hover_component.tscn" id="3_vfpy0"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6qc70"]
 radius = 1.0
@@ -48,7 +48,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_g767u")
 
 [node name="Area3D" type="StaticBody3D" parent="."]
 
-[node name="HoverOutlineC" parent="Area3D" node_paths=PackedStringArray("mesh") instance=ExtResource("3_vfpy0")]
+[node name="HoverComponent" parent="Area3D" node_paths=PackedStringArray("object_link", "mesh") instance=ExtResource("3_vfpy0")]
+object_link = NodePath("../..")
 mesh = NodePath("../../Mesh/Outline")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]

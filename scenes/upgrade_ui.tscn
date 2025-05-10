@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtqahtw6sdvlu"]
+
+[ext_resource type="Script" uid="uid://cg41du8n8vl2h" path="res://scenes/upgrade_ui.gd" id="1_k1o73"]
+
+[node name="UpgradeUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k1o73")
+
+[node name="Upgrade" type="Button" parent="."]
+layout_mode = 0
+offset_left = 866.0
+offset_top = 32.0
+offset_right = 1117.0
+offset_bottom = 144.0
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 197.0
+offset_bottom = 126.0
+text = "Close"
+
+[connection signal="button_down" from="Close" to="." method="_on_close_button_down"]
