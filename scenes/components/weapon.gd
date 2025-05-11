@@ -1,4 +1,4 @@
-class_name Weapon extends Node
+class_name Weapon extends Node3D
 
 var _projectile_scene: PackedScene
 

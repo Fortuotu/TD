@@ -1,4 +1,4 @@
-class_name Dart extends Area3D
+class_name Dart extends Projectile
 
 static var _scene = preload("res://scenes/projectiles/dart.tscn")
 
@@ -10,15 +10,13 @@ static func create(spawn: Vector3, target: Vector3):
 	return inst
 
 var dart_speed = 60.0
-var _damage = 2
 var _lifetime = 5.0
 
 var _direction: Vector3
-var _spawn: Vector3
-var _target: Vector3
 
 func _ready():
 	global_position = _spawn
+	_direction = (_target - _spawn).normalized()
 	look_at(_target)
 	
 	$Lifetime.start(_lifetime)

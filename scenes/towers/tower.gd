@@ -7,7 +7,13 @@ var _upgrades: Array[Upgrade] = [
 	Upgrade.create(_upgrade_2, "this upgrade doesn't do anything")
 ]
 
+@onready var weapon: Weapon = preload("res://scenes/weapons/single_shot.tscn").instantiate()
+
 func _upgrade_1():
+	$Shoot.remove_child(weapon)
+	weapon = preload("res://scenes/weapons/triple_shot.tscn").instantiate()
+	$Shoot.add_child(weapon)
+	
 	var material = $Mesh.get_active_material(0) as StandardMaterial3D
 	material.albedo_color = Color.RED
 
@@ -16,6 +22,8 @@ func _upgrade_2():
 
 func _ready() -> void:
 	upgrade_manager.init(_upgrades)
+	
+	$Shoot.add_child(weapon)
 	
 	$FireTimer.wait_time = 0.3
 	$FireTimer.one_shot = false
@@ -26,5 +34,4 @@ func _fire_dart() -> void:
 	var target = $TowerRange.get_first()
 	
 	if target:
-		var dart = Dart.create(global_position, target.global_position)
-		add_child(dart)
+		weapon.shoot(target.global_position)

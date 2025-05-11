@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cbwqy8b7n2uod"]
+[gd_scene load_steps=2 format=3 uid="uid://cbwqy8b7n2uod"]
 
-[node name="TripleDart" type="Node"]
+[ext_resource type="Script" uid="uid://dp3vhgu7wgwgl" path="res://scenes/weapons/triple_shot.gd" id="1_dyrvr"]
+
+[node name="TripleShot" type="Node3D"]
+script = ExtResource("1_dyrvr")

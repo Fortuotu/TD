@@ -56,3 +56,6 @@ mesh = NodePath("../../Mesh/Outline")
 shape = SubResource("CapsuleShape3D_uksqa")
 
 [node name="FireTimer" type="Timer" parent="."]
+
+[node name="Shoot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

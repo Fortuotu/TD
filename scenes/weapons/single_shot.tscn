@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ovfswas43ay5"]
+
+[ext_resource type="Script" uid="uid://ba3xbtxd468st" path="res://scenes/weapons/single_shot.gd" id="1_u4gl0"]
+
+[node name="SingleShot" type="Node3D"]
+script = ExtResource("1_u4gl0")
