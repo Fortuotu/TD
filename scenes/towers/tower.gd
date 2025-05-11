@@ -13,6 +13,7 @@ func _upgrade_1():
 	$Shoot.remove_child(weapon)
 	weapon = preload("res://scenes/weapons/triple_shot.tscn").instantiate()
 	$Shoot.add_child(weapon)
+	$Headband.visible = true
 	
 	var material = $Mesh.get_active_material(0) as StandardMaterial3D
 	material.albedo_color = Color.RED

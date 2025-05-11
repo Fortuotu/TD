@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://iqux71ke5328"]
+[gd_scene load_steps=13 format=4 uid="uid://iqux71ke5328"]
 
 [ext_resource type="PackedScene" uid="uid://c3rltqrtnt7v4" path="res://scenes/components/tower_range.tscn" id="1_2nklu"]
 [ext_resource type="Script" uid="uid://gssfqoehjgnw" path="res://scenes/towers/tower.gd" id="1_icl2u"]
 [ext_resource type="PackedScene" uid="uid://dhvngl36n1tl1" path="res://scenes/components/hover_component.tscn" id="3_vfpy0"]
+[ext_resource type="ArrayMesh" uid="uid://1atybjhjeqxt" path="res://assets/models/bandana/Headband.obj" id="4_1opkc"]
+[ext_resource type="Texture2D" uid="uid://3mn3a347mx60" path="res://assets/models/bandana/HeadbandTexture.png" id="5_dc0g6"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6qc70"]
 radius = 1.0
@@ -30,6 +32,12 @@ shading_mode = 0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uksqa"]
 radius = 1.0
 height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35rpl"]
+albedo_texture = ExtResource("5_dc0g6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3um6"]
+albedo_texture = ExtResource("5_dc0g6")
 
 [node name="Tower" type="Node3D"]
 script = ExtResource("1_icl2u")
@@ -59,3 +67,10 @@ shape = SubResource("CapsuleShape3D_uksqa")
 
 [node name="Shoot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Headband" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 1, 0)
+visible = false
+mesh = ExtResource("4_1opkc")
+surface_material_override/0 = SubResource("StandardMaterial3D_35rpl")
+surface_material_override/1 = SubResource("StandardMaterial3D_t3um6")
