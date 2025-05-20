@@ -14,7 +14,7 @@ func shoot(target: Vector3):
 	add_child(middle)
 
 	# Horizontal rotation: rotate around Y-axis (Vector3.UP)
-	var spread_angle = deg_to_rad(10)  # Adjust spread angle as needed
+	var spread_angle = deg_to_rad(5.0)  # Adjust spread angle as needed
 
 	var left_direction = direction.rotated(Vector3.UP, spread_angle)
 	var right_direction = direction.rotated(Vector3.UP, -spread_angle)

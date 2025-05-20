@@ -13,10 +13,9 @@ func _upgrade_1():
 	$Shoot.remove_child(weapon)
 	weapon = preload("res://scenes/weapons/triple_shot.tscn").instantiate()
 	$Shoot.add_child(weapon)
-	$Headband.visible = true
 	
-	var material = $Mesh.get_active_material(0) as StandardMaterial3D
-	material.albedo_color = Color.RED
+	$Headband.visible = true
+	$FireTimer.wait_time = 0.5
 
 func _upgrade_2():
 	print("Upgrade 2")
@@ -26,13 +25,13 @@ func _ready() -> void:
 	
 	$Shoot.add_child(weapon)
 	
-	$FireTimer.wait_time = 0.3
+	$FireTimer.wait_time = 0.8
 	$FireTimer.one_shot = false
 	$FireTimer.start()
 	$FireTimer.timeout.connect(_fire_dart)
 
 func _fire_dart() -> void:
-	var target = $TowerRange.get_first()
+	var target = $TowerRange.get_last()
 	
 	if target:
 		weapon.shoot(target.global_position)

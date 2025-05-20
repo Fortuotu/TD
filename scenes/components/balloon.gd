@@ -7,6 +7,9 @@ signal before_pop
 var _speed: float = 0.0
 var _follow: PathFollow3D
 
+var id: int
+var ancestor_ids: Array[int]
+
 func _ready() -> void:
 	_follow.loop = false
 	
@@ -17,10 +20,12 @@ func _physics_process(delta: float) -> void:
 		_follow.queue_free()
 	
 	_follow.progress += _speed * delta
+	
+	health.flush()
 
 func _on_pop():
 	Global.money_counter += 1
-	print(Global.money_counter)
+
 	before_pop.emit()
 	_follow.queue_free()
 

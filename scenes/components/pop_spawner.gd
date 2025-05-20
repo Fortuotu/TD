@@ -18,6 +18,7 @@ func _spawn_balloon() -> void:
 		balloon = spawned_balloon.instantiate()
 		
 		Global.get_wave_spawner().spawn_balloon_at_progress(
+			spawner_balloon,
 			balloon,
 			spawn_progress
 		)

@@ -101,7 +101,7 @@ path_joined = false
 path = NodePath("../Path3D")
 
 [node name="Tower" parent="." instance=ExtResource("3_71j4m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68447, 2.5, -10.2734)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 2.68447, 2.5, -10.2734)
 
 [node name="Market" parent="." instance=ExtResource("4_k0juu")]
 transform = Transform3D(-0.0563965, 0, -0.998408, 0, 1, 0, 0.998408, 0, -0.0563965, 6.98107, 1.90054, 3.06789)

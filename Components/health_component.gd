@@ -20,11 +20,11 @@ signal Died
 ## Reduces the [member HealthComponent.health] by the amount specified,[br]
 ## and will kill if the [member HealthComponent.health] reaches 0.
 func damage(amount: int) -> void:
-	if alive:
-		health -= amount
-		
-		if health <= 0:
-			kill()
+	health -= amount
+
+func flush() -> void:
+	if health <= 0:
+		kill()
 
 ## Kills the Node, which emits the [signal HealthComponent.Died],
 ## sets [code]health = 0[/code], and [code]alive = false[/code].

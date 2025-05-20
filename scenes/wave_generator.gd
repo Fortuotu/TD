@@ -8,7 +8,7 @@ static func create(seed: int):
 	return inst
 
 var _balloon_scenes: Array[PackedScene] = [
-	preload("res://scenes/balloons/red_balloon.tscn"),
+	#preload("res://scenes/balloons/red_balloon.tscn"),
 	preload("res://scenes/balloons/blue_balloon.tscn"),
 	preload("res://scenes/balloons/green_balloon.tscn"),
 	preload("res://scenes/balloons/yellow_balloon.tscn"),
@@ -72,7 +72,7 @@ func _generate_break() -> Array[SpawnEntry]:
 	return [SpawnEntry.new(null, _rng.randf_range(0.0, 1.5  / (float(_wave_counter) + 1.0)))]
 
 func _can_spawn_boss() -> bool:
-	return _rng_chance(15.0) and _wave_counter >= 10
+	return _rng_chance(0.0) and _wave_counter >= 0
 
 func _recalculate_sidx():
 	_sidx = _wave_counter / 1
